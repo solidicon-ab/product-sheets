@@ -2936,7 +2936,9 @@ const MATRIX_COLS = [
   { key: 'category',     label: 'Category',   sort: 'string', edit: false },
   { key: 'gameCode',     label: 'Code',       sort: 'number', edit: true,  cls: 'cell-code' },
   { key: 'platform',     label: 'Platform',   sort: 'string', edit: true },
-  { key: 'gameType',     label: 'Type',       sort: 'string', edit: true },
+  // Type column dropped from the Matrix — for most games it just restates
+  // Category (Crash → "Crash" / "Crash Game"). gameType stays in EXCEL_DATA
+  // and is still edited via each game's Info Sheet section.
   { key: 'rtp',          label: 'RTP',        sort: 'string', edit: true },
   { key: 'volatility',   label: 'Volatility', sort: 'string', edit: true },
   { key: 'maxWinFactor', label: 'Max win',    sort: 'number', edit: true },
