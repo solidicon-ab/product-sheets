@@ -35,6 +35,18 @@
     font: 13px/1.4 'Bai Jamjuree', -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
   }
+  /* Subtle fingerprint watermark, matching the marketing app's page bg. */
+  body { background: transparent; }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: url('pattern-b.svg') 0 0 / 336px 335px repeat;
+    opacity: 0.06;
+    pointer-events: none;
+    z-index: -1;
+  }
+  @media print { body::before { display: none; } }
   * { scrollbar-width: thin; scrollbar-color: rgba(0,172,203,0.45) transparent; }
   ::-webkit-scrollbar { width: 10px; height: 10px; }
   ::-webkit-scrollbar-thumb {
@@ -67,7 +79,7 @@
      A4 sheets inside .pages stay white because they're paper). The game
      switcher and preview surround go dark, with light text. */
   html.embedded body.mode-customer {
-    background: #070d16;
+    background: transparent; /* let html's bg + watermark show through */
   }
   html.embedded body.mode-customer .game-switcher {
     background: #070d16;
